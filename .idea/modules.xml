@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Smurfs.iml" filepath="$PROJECT_DIR$/Smurfs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ninegridview/ninegridview.iml" filepath="$PROJECT_DIR$/ninegridview/ninegridview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testapi/testapi.iml" filepath="$PROJECT_DIR$/testapi/testapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewstudy/viewstudy.iml" filepath="$PROJECT_DIR$/viewstudy/viewstudy.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+//按日期生成的包名
+def versionTag() {
+    return new Date().format("MMdd", TimeZone.getTimeZone("UTC"))
+}
+
+// versionCode按时间自增
+def increasedVersionCode() {
+    return (int) (System.currentTimeMillis() / 1000 / 60 / 60 / 24 - 17141)
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        applicationId "com.prohua.smurfs"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode increasedVersionCode()
+        versionName versionTag()
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // java 1.8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 按日期命名release包
+    applicationVariants.all { variant ->
+        def file = variant.outputs[0].outputFile
+        if (!file.name.contains("debug")) {
+            variant.outputs[0].outputFile = new File(file.parent, file.name.replace("app-rmapk-", "apk名_" + versionTag() + "_"))
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // 25.3.1 存在bug
+    compile 'com.android.support:appcompat-v7:26+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    testCompile 'junit:junit:4.12'
+    // 这里使用了第三方的Fragmentation，进行开发
+    compile 'me.yokeyword:fragmentation:0.10.1'
+    // 事件总线
+    compile 'org.greenrobot:eventbus:3.0.0'
+    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    // 懒人库
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.android.support:recyclerview-v7:26+'
+    // windowsView
+    //compile 'com.jmedeisis:windowview:0.2.0'
+    // 提示
+    compile 'com.tapadoo.android:alerter:1.0.6'
+    // 浮动view
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    // okHttp3
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    // 图片加载库
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    // 全文控件
+    compile 'com.timqi.collapsibletextview:library:1.1.2'
+    // greendao
+    compile 'org.greenrobot:greendao:3.2.2'
+    // 选择器
+    compile 'com.github.LuckSiege.PictureSelector:picture_library:v1.3.9'
+    // add library
+    //compile 'com.github.chaychan:PowerfulViewLibrary:1.0'
+    compile project(':ninegridview')
+    compile project(':libzxing')
+    compile files('libs/AMap_Location_V3.4.0_20170427.jar')
+}
+
+greendao {
+    schemaVersion 3
+    targetGenDir 'src/main/java'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
+    }
+}
+
+apt {
+    arguments {
+        eventBusIndex "com.prohua.smurfs.base.MyEventBusIndex"
+    }
+}

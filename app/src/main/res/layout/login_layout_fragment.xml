@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeef0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#69f"
+        android:orientation="horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6699ff"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@string/account_login"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/web_back" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--    <com.chaychan.viewlib.PowerfulEditText
+                android:id="@+id/e_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#fff"
+                android:hint="@string/student_cell_phone_number"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textSize="16sp"
+                app:funcType="canClear" />-->
+
+        <EditText
+            android:id="@+id/e_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#fff"
+            android:hint="@string/student_cell_phone_number"
+            android:inputType="number"
+            android:padding="15dp"
+            android:textSize="16sp" />
+
+        <!-- <com.chaychan.viewlib.PowerfulEditText
+             android:id="@+id/e_pwd"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="1px"
+             android:background="#fff"
+             android:hint="@string/password_ed"
+             android:inputType="textPassword"
+             android:padding="15dp"
+             android:textSize="16sp"
+             app:funcType="canClear" />-->
+
+        <EditText
+            android:id="@+id/e_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:hint="@string/password_ed"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/relCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1px"
+                android:background="#fff"
+                android:hint="@string/verification_code"
+                android:maxLength="4"
+                android:padding="15dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/checkImg"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:scaleType="fitCenter" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/login_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/login_bt_selector"
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:text="@string/registered_account"
+                android:textColor="#69f"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/forget_password"
+                android:textColor="#69f"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
