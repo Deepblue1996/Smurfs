@@ -6,6 +6,8 @@ Guangdong Polytechnic College
 <pre>
 大学期间独立设计制作，因暂离工作室原因，没有继续开发制作；
 api接口部分已废弃，技术过旧，新手易懂，直白编程，UI原创。
+</pre>
+<pre>
 The independent design and production during the University, 
 because of temporary reasons for leaving the studio, did not continue to develop and produce;
 The API interface part has been abandoned, the technology is too old, 
